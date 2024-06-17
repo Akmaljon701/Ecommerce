@@ -19,7 +19,7 @@ class CustomUserAdmin(UserAdmin):
     list_display = ['phone', 'full_name', 'role', 'balance']
     list_filter = ['role',]
     fieldsets = (
-        (None, {'fields': ('phone',)}),
+        (None, {'fields': ('phone', 'payment_id')}),
         ('Personal info', {'fields': ('full_name', 'role', 'balance')}),
         ('Permissions', {'fields': ('is_staff', 'is_active', 'is_superuser', 'groups', 'user_permissions')}),
     )
