@@ -21,4 +21,4 @@ class SmsVerificationSerializer(Serializer):
 class UserGetCurrentSerializer(ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('id', 'full_name', 'phone', 'payment_id', 'balance')
+        fields = ('id', 'full_name', 'phone', 'balance')

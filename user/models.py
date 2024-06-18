@@ -12,7 +12,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(max_length=9, validators=[MinLengthValidator(9), MaxLengthValidator(9)], unique=True)
     full_name = models.CharField(max_length=50)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='user')
-    payment_id = models.CharField(max_length=100, unique=True, blank=True, null=True)
     balance = models.FloatField(default=0)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
