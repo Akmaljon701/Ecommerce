@@ -1,5 +1,7 @@
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema, OpenApiParameter
+
+from product.serializers import ProductsGetSerializer
 from user.serializers import UserCreateSerializer, UserLoginSerializer, SmsVerificationSerializer, \
     UserGetCurrentSerializer
 from utils.responses import response_schema
@@ -48,4 +50,11 @@ sms_verification_schema = extend_schema(
 current_user_schema = extend_schema(
     summary="Get current user",
     responses=UserGetCurrentSerializer
+)
+
+
+user_favorite_products_schema = extend_schema(
+    summary="Favorite products",
+    request=None,
+    responses=ProductsGetSerializer(many=True),
 )

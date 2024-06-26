@@ -1,5 +1,7 @@
 from django.db import models
 
+from user.models import CustomUser
+
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
@@ -44,6 +46,9 @@ class Product(models.Model):
     price = models.FloatField()
     info = models.TextField()
 
+    liked_by = models.ManyToManyField(CustomUser, related_name='liked_products', blank=True)
+    favorited_by = models.ManyToManyField(CustomUser, related_name='favorite_products', blank=True)
+
     def __str__(self):
         return self.name
 
@@ -54,3 +59,7 @@ class ProductFile(models.Model):
 
     def __str__(self):
         return f'{self.product.name} - {self.file.url}'
+
+
+
+

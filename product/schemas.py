@@ -24,3 +24,27 @@ get_new_products_schema = extend_schema(
     request=None,
     responses=ProductsGetSerializer(many=True),
 )
+
+product_like_toggle_schema = extend_schema(
+    summary="Product Like",
+    request=None,
+    responses={
+        200: {"description": "The operation was completed successfully",
+              "example": {'liked': 'bool'}},
+    },
+    parameters=[
+        OpenApiParameter(name='pk', description='Product ID', required=True, type=OpenApiTypes.INT),
+    ]
+)
+
+product_favorite_toggle_schema = extend_schema(
+    summary="Product Favorite",
+    request=None,
+    responses={
+        200: {"description": "The operation was completed successfully",
+              "example": {'favorited': 'bool'}},
+    },
+    parameters=[
+        OpenApiParameter(name='pk', description='Product ID', required=True, type=OpenApiTypes.INT),
+    ]
+)
